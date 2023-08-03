@@ -1,0 +1,24 @@
+.day-weather {
+  width: 80px;
+  height: auto;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: center;
+
+  .name{
+    font-size: 14px;
+    color: #afb1b6;
+  }
+
+  img{
+    width: 50px;
+    height: 50px;
+  }
+
+  .temperature{
+    font-size: 14px;
+
+  }
+}

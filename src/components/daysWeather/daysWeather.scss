@@ -1,0 +1,12 @@
+.days-weather{
+  flex-direction: column;
+  gap: 20px;
+
+  .title{
+    font-size: 20px;
+  }
+
+  .days{
+    gap: 20px;
+  }
+}

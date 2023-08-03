@@ -1,0 +1,36 @@
+.trip{
+  width: 180px;
+  height: 230px;
+  flex-direction: column;
+
+  .img-div{
+    width: 180px;
+    height: 160px;
+    img{
+      width: 180px;
+      height: 160px;
+      object-fit: cover;
+    }
+  }
+
+  .bottom-section{
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 70px;
+    border: 1px solid #F2F4F8;
+    padding: 12px 12px;
+    font-size: 12px;
+    gap: 10px;
+
+    .date{
+      color: #afb1b6;
+    }
+
+
+  }
+}
+
+.trip:hover{
+  cursor: pointer;
+}
+

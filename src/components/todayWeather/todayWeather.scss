@@ -1,0 +1,72 @@
+.container-today{
+  color: white;
+  flex-direction: column;
+  gap: 130px;
+
+  .center-elem{
+    align-self: center;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 200px;
+    font-size: 36px;
+    gap: 10px;
+
+    .day{
+      font-weight: 600;
+      margin-left: 5px;
+    }
+    .elem-degrees{
+      justify-content: center;
+
+      .weather-icon{
+        width: 60px;
+        height: 60px;
+        align-self: center;
+        margin-right: 10px;
+      }
+
+      .degrees{
+        font-size: 60px;
+        font-weight: 400;
+        letter-spacing: 3px;
+      }
+
+      .celcium{
+        left: 0;
+        top: 0;
+        font-size: 22px;
+        font-weight: lighter;
+      }
+
+    }
+    .city{
+      font-weight: lighter;
+      font-size: 26px;
+      align-self: center;
+    }
+
+
+  }
+
+  .bottom-elem{
+    flex-direction: row;
+    gap: 50px;
+
+    .element{
+      flex-direction: column;
+      gap: 5px;
+      align-items: center;
+      .number{
+        font-weight: bolder;
+        font-size: 28px;
+      }
+
+      .text{
+        font-weight: lighter;
+        font-size: 14px;
+      }
+    }
+
+  }
+
+}

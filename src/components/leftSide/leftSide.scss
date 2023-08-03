@@ -1,0 +1,12 @@
+.container-left {
+  width: 1220px;
+  flex-direction: column;
+  background: white;
+  margin: 30px;
+  gap: 40px;
+
+  .app-name{
+    font-size: 24px;
+  }
+
+}
