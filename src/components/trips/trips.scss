@@ -1,28 +1,43 @@
 .trips {
+  min-width: 97%;
+  max-width: 97%;
+  overflow: scroll;
   gap: 50px;
+  resize: none;
 
-  .add-trip {
-    width: 180px;
-    height: 160px;
-    background: #F2F4F8;
+  .add-trip-container{
+    width: 200px;
+    height: 250px;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
 
-    .plus{
-      font-size: 24px;
-      user-select: none;
+    .add-trip {
+      width: 200px;
+      height: 180px;
+      background: #F2F4F8;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .plus{
+        font-size: 24px;
+        user-select: none;
+      }
+
+      .text{
+        font-size: 18px;
+        user-select: none;
+      }
     }
 
-    .text{
-      font-size: 18px;
-      user-select: none;
+    .add-trip:hover{
+      background: lightgray;
+      cursor: pointer;
     }
   }
 
-  .add-trip:hover{
-    background: lightgray;
-    cursor: pointer;
-  }
 
+}
+
+.trips::-webkit-scrollbar{
+  display: none;
 }

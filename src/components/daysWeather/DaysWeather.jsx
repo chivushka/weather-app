@@ -13,14 +13,14 @@ const DaysWeather = () => {
             date: new Date("2023-08-02")
         },
         {
-            id: 1,
+            id: 2,
             tempmin: "13",
             tempmax: "25",
             icon: "cloudy-day",
             date: new Date("2023-08-03")
         },
         {
-            id: 1,
+            id: 3,
             tempmin: "19",
             tempmax: "27",
             icon: "cloudy-day",

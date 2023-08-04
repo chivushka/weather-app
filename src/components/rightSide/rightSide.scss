@@ -1,5 +1,7 @@
 .container-right {
-  width: 700px;
+  width: 35%;
   background: #121040;
   justify-content: center;
+  flex-direction: column;
+  resize: none;
 }

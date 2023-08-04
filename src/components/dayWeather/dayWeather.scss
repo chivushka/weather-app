@@ -1,5 +1,5 @@
 .day-weather {
-  width: 80px;
+  width: 100px;
   height: auto;
   flex-direction: column;
   gap: 10px;
@@ -8,17 +8,17 @@
   justify-content: center;
 
   .name{
-    font-size: 14px;
+    font-size: 16px;
     color: #afb1b6;
   }
 
   img{
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
   }
 
   .temperature{
-    font-size: 14px;
+    font-size: 16px;
 
   }
 }

@@ -1,0 +1,23 @@
+.timer{
+  color: white;
+  justify-self: center;
+  align-self: center;
+    flex-direction: row;
+    gap: 50px;
+
+    .element{
+      flex-direction: column;
+      gap: 5px;
+      align-items: center;
+      .number{
+        font-weight: bolder;
+        font-size: 28px;
+      }
+
+      .text{
+        font-weight: lighter;
+        font-size: 14px;
+      }
+    }
+
+}

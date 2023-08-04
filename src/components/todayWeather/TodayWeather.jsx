@@ -1,5 +1,6 @@
 import React from 'react';
 import './todayWeather.scss';
+import Timer from "../timer/Timer";
 
 const TodayWeather = () => {
     return (
@@ -12,26 +13,8 @@ const TodayWeather = () => {
                     <div className="celcium">&deg;C</div>
                 </div>
                 <div className="city">Berlin</div>
-
             </div>
-            <div className="bottom-elem">
-                <div className="element">
-                    <div className="number">30</div>
-                    <div className="text">DAYS</div>
-                </div>
-                <div className="element">
-                    <div className="number">15</div>
-                    <div className="text">HOURS</div>
-                </div>
-                <div className="element">
-                    <div className="number">15</div>
-                    <div className="text">MINUTES</div>
-                </div>
-                <div className="element">
-                    <div className="number">30</div>
-                    <div className="text">SECONDS</div>
-                </div>
-            </div>
+            <Timer></Timer>
         </div>
     );
 };
