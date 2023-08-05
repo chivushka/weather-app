@@ -1,20 +1,54 @@
-import React from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import './todayWeather.scss';
 import Timer from "../timer/Timer";
+import {StoreContext, useStore} from "../../context/storeContex";
 
 const TodayWeather = () => {
+    const {tripItem} = useContext(StoreContext)
+    const store = useStore()
+
+    const [trip, setTrip] = useState(null)
+    const [data, setData] = useState(null)
+
+    useEffect(() => {
+        fetchWeatherToday()
+    }, [tripItem]);
+
+    const fetchWeatherToday = (() => {
+        setTrip(tripItem)
+        const dataFetch = async () => {
+            const data = await (
+                await fetch(
+                    "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timelin\n" +
+                    "e/" + tripItem.city.toString() + "/today?unitGroup=metric&include=days&key=G4TYTD7S93KU5SVJZGGC3T5QQ&contentType=\n" +
+                    "json"
+                )
+            ).json();
+
+            setData(data)
+        };
+
+        dataFetch().then(promise => console.log("fetched today weather"));
+
+    })
+
     return (
+
         <div className="container-today">
-            <div className="center-elem">
-                <div className="day">Sunday</div>
-                <div className="elem-degrees">
-                    <img className="weather-icon" src="/img/cloud-icon.png" alt=""/>
-                    <div className="degrees">24</div>
-                    <div className="celcium">&deg;C</div>
-                </div>
-                <div className="city">Berlin</div>
-            </div>
-            <Timer></Timer>
+            {trip !== null && data != null ?
+                <>
+                    <div className="center-elem">
+                        <div className="day">{store.getWeekDay(new Date())}</div>
+                        <div className="elem-degrees">
+                            <img className="weather-icon" src={'/img/weather/'+data.days[0].icon+'.svg'} alt=""/>
+                            <div className="degrees">{Math.round(data.days[0].feelslike)}</div>
+                            <div className="celcium">&deg;C</div>
+                        </div>
+                        <div className="city">{tripItem.city}</div>
+                    </div>
+                    <Timer item = {tripItem}></Timer>
+                </> :
+                <div></div>}
         </div>
     );
 };

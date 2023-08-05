@@ -5,7 +5,7 @@ import DaysWeather from "../daysWeather/DaysWeather";
 import SearchIcon from "@mui/icons-material/SearchOutlined";
 
 const LeftSide = () => {
-    const [search, setSearch] = useState("nothing")
+    const [search, setSearch] = useState('')
 
     const handleSearch = (e) => {
         setSearch(e.target.value)

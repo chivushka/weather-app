@@ -1,75 +1,54 @@
 import React, {useEffect, useState} from 'react';
 import './trips.scss';
 import Trip from "../trip/Trip";
+import {useStore} from "../../context/storeContex";
 
 const Trips = ({searchString}) => {
 
-    const trips = [
-        {
-            id: 1,
-            city: 'Berlin',
-            startDate: new Date("2023-10-02"),
-            endDate: new Date("2023-10-12")
-        },
-        {
-            id: 2,
-            city: 'Milan',
-            startDate: new Date("2023-09-13"),
-            endDate: new Date("2023-09-20")
-        },
-        {
-            id: 3,
-            city: 'Paris',
-            startDate: new Date("2023-11-13"),
-            endDate: new Date("2023-11-30")
-        },
-        {
-            id: 4,
-            city: 'Berlin',
-            startDate: new Date("2023-10-02"),
-            endDate: new Date("2023-10-12")
-        },
-        {
-            id: 5,
-            city: 'Milan',
-            startDate: new Date("2023-09-13"),
-            endDate: new Date("2023-09-20")
-        },
-        {
-            id: 6,
-            city: 'Paris',
-            startDate: new Date("2023-11-13"),
-            endDate: new Date("2023-11-30")
-        }
-    ];
-
     const [allTrips, setAllTrips] = useState([])
+    const store = useStore()
 
     useEffect(() => {
-        const tripsNow = []
-        if (searchString !== 'nothing') {
-            for (let trip of trips) {
+        const tripsSearch = []
+        if (searchString !== '') {
+            for (let trip of store.trips) {
                 if (trip.city.toLowerCase().includes(searchString)) {
-                    tripsNow.push(trip)
+                    tripsSearch.push(trip)
                 }
             }
-            setAllTrips(tripsNow)
+            setAllTrips(tripsSearch)
+            document.getElementsByClassName('add-trip')[0].style.display = "none"
         } else {
-            setAllTrips(trips)
+            setAllTrips(store.trips)
+            document.getElementsByClassName('add-trip')[0].style.display = "flex"
         }
     }, [searchString]);
 
+    useEffect(() => {
+        setAllTrips(store.trips)
+    }, [store.trips]);
+
+
+    const AddTrip = () => {
+        store.addNewTrip({
+            id: 3,
+            city: 'Berlin',
+            startDate: "2023-08-10",
+            endDate: "2023-08-12"
+        })
+    }
+
 
     return (
-            <div className="trips scroll-div">
-                {allTrips.map((trip) => <Trip trip={trip} key={trip.id}></Trip>)}
-                <div className="add-trip-container">
-                    <div className="add-trip">
-                        <span className="plus">+</span>
-                        <span className="text">Add Trip</span>
-                    </div>
+        <div className="trips scroll-div">
+            {allTrips.map((trip) => <Trip trip={trip} key={trip.id}></Trip>)}
+            <div className="add-trip-container">
+                <div className="add-trip" onClick={AddTrip}>
+                    <span className="plus">+</span>
+                    <span className="text">Add Trip</span>
                 </div>
             </div>
+        </div>
 
     );
 };

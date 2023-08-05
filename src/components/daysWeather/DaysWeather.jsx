@@ -1,37 +1,44 @@
-import React from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import DayWeather from "../dayWeather/DayWeather";
 import "./daysWeather.scss";
-
+import {StoreContext, useStore} from "../../context/storeContex";
 const DaysWeather = () => {
 
-    const days = [
-        {
-            id: 1,
-            tempmin: "10",
-            tempmax: "21",
-            icon: "cloudy-day",
-            date: new Date("2023-08-02")
-        },
-        {
-            id: 2,
-            tempmin: "13",
-            tempmax: "25",
-            icon: "cloudy-day",
-            date: new Date("2023-08-03")
-        },
-        {
-            id: 3,
-            tempmin: "19",
-            tempmax: "27",
-            icon: "cloudy-day",
-            date: new Date("2023-08-04")
-        },
-    ]
+    const {tripItem} = useContext(StoreContext)
+    const [data, setData] = useState(null)
+
+    useEffect(() => {
+        fetchWeatherDays()
+    }, [tripItem]);
+
+    const fetchWeatherDays = (() => {
+
+        const dataFetch = async () => {
+            const data = await (
+                await fetch(
+                    "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timelin\n" +
+                    "e/"+tripItem.city+"/"+tripItem.startDate+"/"+ tripItem.endDate+"?unitGroup=metric&include=days&" +
+                    "key=G4TYTD7S93KU5SVJZGGC3T5QQ&contentType=json"
+                )
+            ).json();
+
+            setData(data)
+        };
+
+        dataFetch().then(promise => console.log(data));
+
+    })
+
     return (
-        <div className="days-weather">
-            <div className="title">Week</div>
-            <div className="days">{days.map((day) =><DayWeather day={day} key={day.id}></DayWeather>)}</div>
-        </div>
+        <>{ data ?
+            <div className="days-weather">
+                <div className="title">Week</div>
+                <div className="days">{data.days.map((day,id) =><DayWeather day={day} key={id++}></DayWeather>)}</div>
+            </div>:
+            <div></div>
+        }
+        </>
+
     );
 };
 

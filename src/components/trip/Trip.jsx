@@ -1,39 +1,44 @@
 import React, {useEffect} from 'react';
 import './trip.scss';
+import {useStore} from "../../context/storeContex";
 
 const Trip = ({trip}) => {
 
     useEffect(() => {
-        chooseTrip(1);
+        chooseTrip(true)
+
     }, []);
+    const store = useStore()
 
-    function chooseTrip(id) {
-
-        const otherElements = document.getElementsByClassName("trip")
+    function chooseTrip(first) {
         let tripId
-        if(id === 1){
-            tripId = id.toString()
-        }
-        else{
+        if (first === true){
+            tripId = "0"
+        } else{
+            store.setTripItem(trip)
             tripId = trip.id.toString()
         }
+        highlightElement(tripId)
 
+    }
+
+    function highlightElement(id){
+        const otherElements = document.getElementsByClassName("trip")
         for (const elem of otherElements) {
             const child = elem.querySelector(".bottom-section")
-            if (elem.id === tripId) {
+            if (elem.id === id) {
                 child.style.borderColor = "#1890FF"
 
             } else child.style.borderColor = "#F2F4F8"
-
         }
-
     }
 
-    function convertDateToText(date) {
-        const day = date.getDay().valueOf() < 10 ? "0" + date.getDay().toString() : date.getDay().toString()
-        const month = date.getMonth().valueOf() < 10 ? "0" + date.getMonth().toString() : date.getMonth().toString()
-        return day + '.' + month + '.' + date.getFullYear().toString()
+    function convertStringDateToText(date) {
+        let arrDate = date.split("-")
+        arrDate.reverse()
+        return arrDate[0] + "." + arrDate[1] + "." + arrDate[2]
     }
+
 
     return (
         <div className={"trip"} id={trip.id} onClick={chooseTrip}>
@@ -42,7 +47,7 @@ const Trip = ({trip}) => {
             </div>
             <div className="bottom-section">
                 <span className="text">{trip.city}</span>
-                <span className="date">{convertDateToText(trip.startDate)} - {convertDateToText(trip.endDate)}</span>
+                <span className="date">{convertStringDateToText(trip.startDate)} - {convertStringDateToText(trip.endDate)}</span>
             </div>
         </div>
     );
