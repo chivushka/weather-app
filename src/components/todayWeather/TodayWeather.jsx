@@ -20,7 +20,7 @@ const TodayWeather = () => {
             const data = await (
                 await fetch(
                     "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timelin\n" +
-                    "e/" + tripItem.city.toString() + "/today?unitGroup=metric&include=days&key=G4TYTD7S93KU5SVJZGGC3T5QQ&contentType=\n" +
+                    "e/" + tripItem.city.toString() + "/today?unitGroup=metric&include=days&key=XMRQ93DTNCTQFAQK9KNMVGGEG&contentType=\n" +
                     "json"
                 )
             ).json();

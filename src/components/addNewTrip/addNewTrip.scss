@@ -1,0 +1,108 @@
+.add-new-trip{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  *{
+    box-sizing: content-box;
+  }
+  .modal{
+    width: 720px;
+    height: 500px;
+    background: white;
+    z-index: 999;
+    flex-direction: column;
+    font-size: 16px;
+    gap: 20px;
+
+    .header{
+      padding: 20px 15px 0;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      .close{
+        font-size: 16px;
+        border: none;
+        background: none;
+        cursor: pointer;
+      }
+
+      .close:hover{
+        color: #1890FF;
+      }
+
+    }
+
+    hr{
+      width: 100%;
+      border: none;
+      height: 0.5px;
+      background: #afb1b6;
+    }
+
+    form{
+      display: flex;
+      flex-direction: column;
+      padding: 20px 20px;
+      gap: 15px;
+
+      .default-input{
+        padding: 10px 10px;
+        height: 20px;
+        outline: none;
+        user-select: none;
+        border: 1px solid #afb1b6;
+        font-size: 16px;
+      }
+
+
+      label{
+        font-size: 16px;
+      }
+
+      select{
+        -webkit-appearance: none;
+        appearance: none;
+        -moz-appearance: none;
+        background-image: url('https://www.svgrepo.com/show/80156/down-arrow.svg');
+        background-repeat: no-repeat;
+        background-size: 10px 10px;
+        background-position: calc(100% - 10px);
+      }
+    }
+
+  .footer{
+    padding: 0px 15px 20px;
+    gap: 20px;
+    justify-content: flex-end;
+
+    button{
+      font-size: 16px;
+      padding: 8px 14px;
+    }
+
+    button:hover{
+      cursor: pointer
+    }
+
+    .cancel{
+      background: white;
+      border: 1px solid #afb1b6;
+    }
+
+    .save{
+      border: none;
+      background: #1890FF;
+      color: white;
+
+    }
+  }
+  }
+
+
+}

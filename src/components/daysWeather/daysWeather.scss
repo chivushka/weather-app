@@ -8,5 +8,11 @@
 
   .days{
     gap: 20px;
+    overflow: scroll;
+  }
+
+  .days::-webkit-scrollbar{
+    display: none;
   }
 }
+

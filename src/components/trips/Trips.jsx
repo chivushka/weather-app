@@ -2,9 +2,11 @@ import React, {useEffect, useState} from 'react';
 import './trips.scss';
 import Trip from "../trip/Trip";
 import {useStore} from "../../context/storeContex";
+import AddNewTrip from "../addNewTrip/AddNewTrip";
 
 const Trips = ({searchString}) => {
 
+    const [openAddNewTrip, setOpenAddNewTrip] = useState(false)
     const [allTrips, setAllTrips] = useState([])
     const store = useStore()
 
@@ -29,27 +31,24 @@ const Trips = ({searchString}) => {
     }, [store.trips]);
 
 
-    const AddTrip = () => {
-        store.addNewTrip({
-            id: 3,
-            city: 'Berlin',
-            startDate: "2023-08-10",
-            endDate: "2023-08-12"
-        })
+    const NewTrip = () => {
+        setOpenAddNewTrip(true)
     }
 
 
     return (
-        <div className="trips scroll-div">
-            {allTrips.map((trip) => <Trip trip={trip} key={trip.id}></Trip>)}
-            <div className="add-trip-container">
-                <div className="add-trip" onClick={AddTrip}>
-                    <span className="plus">+</span>
-                    <span className="text">Add Trip</span>
+        <>
+            <div className="trips">
+                {allTrips.map((trip) => <Trip trip={trip} key={trip.id}></Trip>)}
+                <div className="add-trip-container">
+                    <div className="add-trip" onClick={NewTrip}>
+                        <span className="plus">+</span>
+                        <span className="text">Add Trip</span>
+                    </div>
                 </div>
             </div>
-        </div>
-
+            {openAddNewTrip && <AddNewTrip setOpenAddNewTrip = {setOpenAddNewTrip}/>}
+        </>
     );
 };
 

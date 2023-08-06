@@ -18,7 +18,7 @@ const DaysWeather = () => {
                 await fetch(
                     "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timelin\n" +
                     "e/"+tripItem.city+"/"+tripItem.startDate+"/"+ tripItem.endDate+"?unitGroup=metric&include=days&" +
-                    "key=G4TYTD7S93KU5SVJZGGC3T5QQ&contentType=json"
+                    "key=XMRQ93DTNCTQFAQK9KNMVGGEG&contentType=json"
                 )
             ).json();
 
