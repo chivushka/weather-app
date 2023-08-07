@@ -43,7 +43,7 @@ const AddNewTrip = ({setOpenAddNewTrip}) => {
     const checkEndGreaterStartDate = (start, end) =>{
         const startDate = new Date(start)
         const endDate = new Date(end)
-        return endDate => startDate
+        return endDate >= startDate
     }
 
     const handleSave = (e) => {
@@ -54,7 +54,7 @@ const AddNewTrip = ({setOpenAddNewTrip}) => {
                     store.addNewTrip(inputs)
                     setOpenAddNewTrip(false)
                 } else {
-                    alert("Start date can't be greater than end date")
+                    alert("Start date can't be later than end date")
                 }
             } else {
                 alert("Start date and end date should be within next 15 days")
