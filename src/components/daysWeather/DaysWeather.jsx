@@ -25,7 +25,7 @@ const DaysWeather = () => {
             setData(data)
         };
 
-        dataFetch().then(promise => console.log(data));
+        dataFetch().then();
 
     })
 

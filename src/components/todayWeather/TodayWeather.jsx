@@ -28,7 +28,7 @@ const TodayWeather = () => {
             setData(data)
         };
 
-        dataFetch().then(promise => console.log("fetched today weather"));
+        dataFetch().then(console.log(data));
 
     })
 

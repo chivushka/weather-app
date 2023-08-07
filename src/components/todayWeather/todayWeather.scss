@@ -18,6 +18,10 @@
     .elem-degrees {
       justify-content: center;
 
+      img{
+        -webkit-user-drag: none;
+      }
+
       .weather-icon {
         width: 80px;
         height: 80px;

@@ -5,38 +5,59 @@
   padding-top: 30px;
   padding-left: 30px;
   padding-bottom: 30px;
-  gap: 40px;
+  gap: 30px;
   overflow: hidden;
 
-  .app-name{
+  .app-name {
     font-size: 24px;
   }
 
-  .container-search{
-    padding: 15px 15px;
-    gap: 10px;
-    background: #F2F4F8;
-    width: 250px;
-    border-radius: 10px;
+  .upper-container {
+    gap: 20px;
 
-    .search-icon{
-      width: 28px;
-      height: 28px;
+    .container-sort {
+      padding: 10px 20px;
+      background: #F2F4F8;
+      border-radius: 10px;
+
+
+      select{
+          align-items: center;
+          border: none;
+          outline: none;
+          background: none;
+          font-size: 14px;
+          cursor: pointer;
+      }
     }
 
-    input{
-      align-items: center;
-      border: none;
-      outline: none;
-      background: none;
-      font-size: 14px;
-      width: 200px;
-    }
+    .container-search {
+      padding: 15px 15px;
+      gap: 10px;
+      background: #F2F4F8;
+      width: 250px;
+      border-radius: 10px;
 
-    input::placeholder{
-      color: black;
-    }
+      .search-icon {
+        width: 28px;
+        height: 28px;
+      }
 
+      input {
+        align-items: center;
+        border: none;
+        outline: none;
+        background: none;
+        font-size: 14px;
+        width: 200px;
+      }
+
+      input::placeholder {
+        color: black;
+      }
+
+    }
   }
+
 
 }
