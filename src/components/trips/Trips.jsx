@@ -15,7 +15,7 @@ const Trips = ({searchString, sortType, setSearch, setSort}) => {
     const getSearchArr = () => {
         let tripsSearch = []
         for (let trip of store.trips) {
-            if (trip.city.toLowerCase().includes(searchString)) {
+            if (trip.city.toLowerCase().includes(searchString.toLowerCase())) {
                 tripsSearch.push(trip)
             }
         }
